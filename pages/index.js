@@ -1,11 +1,30 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from '@next/font/google'
-import styles from '../styles/Home.module.css'
+import Head from "next/head";
+import Image from "next/image";
+import { Inter } from "@next/font/google";
+import Button, { DarkButton, NeonButton, RippleButton } from "../components/styled/blocks/Button";
+import Card from "../components/styled/blocks/Card";
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+  if (typeof document !== "undefined") {
+  const buttons = document.querySelectorAll('a');
+  buttons.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      let x = e.clientX - e.target.offsetLeft;
+      let y = e.clientY - e.target.offsetTop;
+
+      let ripples = document.createElement('span');
+      ripples.style.left = x + 'px';
+      ripples.style.top = y + 'px';
+      btn.appendChild(ripples);
+
+      setTimeout(() => {
+        ripples.remove();
+      }, 1000)
+    })
+  })
+  }
   return (
     <>
       <Head>
@@ -14,110 +33,39 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={styles.main}>
-        <div className={styles.description}>
-          <p>
-            Get started by editing&nbsp;
-            <code className={styles.code}>pages/index.js</code>
-          </p>
-          <div>
-            <a
-              href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              By{' '}
-              <Image
-                src="/vercel.svg"
-                alt="Vercel Logo"
-                className={styles.vercelLogo}
-                width={100}
-                height={24}
-                priority
-              />
-            </a>
-          </div>
-        </div>
-
-        <div className={styles.center}>
-          <Image
-            className={styles.logo}
-            src="/next.svg"
-            alt="Next.js Logo"
-            width={180}
-            height={37}
-            priority
-          />
-          <div className={styles.thirteen}>
-            <Image
-              src="/thirteen.svg"
-              alt="13"
-              width={40}
-              height={31}
-              priority
+      <main style={{ height: 100 + "vh" }}>
+        <DarkButton> Button </DarkButton>
+        <NeonButton>Home</NeonButton>
+        <Button>Button</Button>
+        <Button primary>Button</Button>
+        <RippleButton>Ripple</RippleButton>
+        <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: "center",}}>
+        <Card>
+          <Card.Header>
+            <Card.Image
+              src="https://github.com/NateAyye.png"
+              alt="Card Picture"
             />
-          </div>
-        </div>
-
-        <div className={styles.grid}>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Docs <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Find in-depth information about Next.js features and&nbsp;API.
-            </p>
-          </a>
-
-          <a
-            href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Learn <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Learn about Next.js in an interactive course with&nbsp;quizzes!
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Templates <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Discover and deploy boilerplate example Next.js&nbsp;projects.
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Deploy <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Instantly deploy your Next.js site to a shareable URL
-              with&nbsp;Vercel.
-            </p>
-          </a>
+            <Card.Title>Nathan Cuevas</Card.Title>
+          </Card.Header>
+          <Card.Text>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt nesciunt nemo veniam eveniet? Libero quasi fugiat vero quos, eos rem. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est molestiae et consequuntur laudantium velit architecto porro nesciunt maiores saepe corporis!
+          </Card.Text>
+        </Card>
+        <Card>
+          <Card.Header>
+            <Card.Image
+              src="https://github.com/NateAyye.png"
+              alt="Card Picture"
+            />
+            <Card.Title>Nathan Cuevas</Card.Title>
+          </Card.Header>
+          <Card.Text>
+            Wellcome to the Card made from styled components
+          </Card.Text>
+        </Card>
         </div>
       </main>
     </>
-  )
+  );
 }
