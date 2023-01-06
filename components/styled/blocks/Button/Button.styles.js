@@ -1,24 +1,42 @@
-import styled from "styled-components";
-import {keyframes} from 'styled-components'
+import styled, { css } from "styled-components";
+import { device } from '/pages/_app'
+
+export const DefaultButton = styled.a`
+  position: relative;
+  font-family: "Oswald", sans-serif;
+  font-weight: 600;
+  display: inline-block;
+  padding: 8px 45px;
+  margin: auto;
+  color: #ffffffee;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid #222222cc;
+  border-radius: 1rem;
+  box-shadow: 0 0 2px 2px #22222222;
+  overflow: hidden;
+  background: linear-gradient(90deg, #263238aa, #212121aa);
+  user-select: none;
 
 
-const animate = keyframes`
-  0% {
-    width: 0px;
-    height: 0px;
-    opacity: 0.25;
+  @media (prefers-color-scheme: light) {
+
   }
-  100% {
-    width: 500px;
-    height: 500px;
-    opacity: 0;
+
+  span {
+    position: absolute;
+    background: #333333;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    border-radius: 50%;
+    animation: animate 1s linear infinite;
   }
-`
+`;
 
 export const RippleButton = styled.a`
   position: relative;
-  font-family: 'Segoe UI';
-  font-weight: bold;
+  font-family: "Oswald", sans-serif;
+  font-weight: 600;
   display: inline-block;
   padding: 12px 36px;
   margin: 10px 0;
@@ -26,8 +44,6 @@ export const RippleButton = styled.a`
   text-decoration: none;
   text-transform: uppercase;
   cursor: pointer;
-  font-size: 18px;
-  letter-spacing: 2px;
   border-radius: 1rem;
   overflow: hidden;
   background: linear-gradient(90deg, #0162c8, #55e7fc);
@@ -38,8 +54,19 @@ export const RippleButton = styled.a`
     transform: translate(-50%, -50%);
     pointer-events: none;
     border-radius: 50%;
-    animation: ${animate} 1s linear infinite;
+    animation: animate 1s linear infinite;
   }
+
+  ${(props) =>
+    props.primary &&
+    css`
+      background: white;
+      color: black;
+
+      span {
+        background: black;
+      }
+    `}
 `;
 
 export const Button = styled.button`
@@ -51,8 +78,8 @@ export const Button = styled.button`
   border-bottom: 2px solid ${(props) => (props.primary ? "#689F38" : "#0078b9")};
   border-right: 1px solid ${(props) => (props.primary ? "#689F38" : "#0078b9")};
   background-color: ${(props) => (props.primary ? "#8BC34A" : "#23aaf2")};
-  font-size: 16px;
-  font-weight: bolder;
+  font-size: 15px;
+  letter-spacing: 1px;
 
   transition: all 0.5s ease-in-out;
 
@@ -64,7 +91,7 @@ export const Button = styled.button`
 
 export const DarkButton = styled(Button)`
   color: ${(props) => props.theme.dark.text};
-  background-color: ${(props) => props.theme.dark.primary};
+  background-color: ${(props) => props.color};
   border: none;
 
   box-shadow: 0px 0px 10px ${(props) => props.theme.dark.primary};

@@ -44,7 +44,10 @@ export default class MyDocument extends Document {
   render() {
     return (
       <Html>
-        <Head />
+        <Head>
+        <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet"></link>
+        <style> @import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans&family=Oswald:wght@400;500;600&display=swap'); </style>
+        </Head>
         <body>
           {getColorModeInitScriptElement()}
           <Main />
