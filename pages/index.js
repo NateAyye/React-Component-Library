@@ -1,6 +1,5 @@
 import Head from "next/head";
 import { Inter } from "@next/font/google";
-import { DarkButton, DefaultButton, NeonButton, RippleButton } from "../components/styled/blocks/Button";
 import Card from "../components/styled/blocks/Card";
 import Button from "../components/styled/elements/Button";
 
@@ -22,8 +21,8 @@ export default function Home() {
       </Head>
       <main style={{ height: 100 + "vh", background: 'black', }}>
 
-        <Button color='white' glow >Default</Button>
-        <Button color='red' glow >Default</Button>
+        <Button color='#ff00ff' glow >Default</Button>
+        <Button color='#24acf2' glow >Default</Button>
         <Button color='orange' glow >Default</Button>
         <Button color='yellow' glow >Default</Button>
         <Button color='green' glow >Default</Button>

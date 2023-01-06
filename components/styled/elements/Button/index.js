@@ -41,6 +41,7 @@ const Button = (props) => {
     // * Passing the props down th the component so you can attach all the normal attribute's a link may have
     <StyledButton {...props}>
       <p>{props.children}</p>
+      <div className="active"></div>
     </StyledButton>
   );
 };

@@ -1,13 +1,13 @@
 import React from 'react'
-import { NeonButton } from '../styled/blocks/Button'
+import Button from '/components/styled/elements/Button'
 
 const Navbar = () => {
   return (
     <div className='navbar'>
-      <NeonButton>Home</NeonButton>
-      <NeonButton>About</NeonButton>
-      <NeonButton>Profile</NeonButton>
-      <NeonButton>Settings</NeonButton>
+      <Button glow >Home</Button>
+      <Button glow >About</Button>
+      <Button glow >Profile</Button>
+      <Button glow >Settings</Button>
     </div>
   )
 }
