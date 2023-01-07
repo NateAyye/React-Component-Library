@@ -43,3 +43,8 @@ a {
   justify-content: center;
   align-items: center;
 }
+
+.form-wrapper {
+  height: 50%;
+  width: 50%;
+}

@@ -21,15 +21,15 @@ export default function Home() {
       </Head>
       <main style={{ height: 100 + "vh", background: 'black', }}>
 
-        <Button color='#ff00ff' glow >Default</Button>
-        <Button color='#24acf2' glow >Default</Button>
+        <Button activated color='#ff00ff' glow >Default</Button>
+        <Button activated color='#24acf2' glow >Default</Button>
         <Button color='orange' glow >Default</Button>
         <Button color='yellow' glow >Default</Button>
         <Button color='green' glow >Default</Button>
         <Button color='blue' glow >Default</Button>
         <Button color='indigo' glow >Default</Button>
         <Button color='violet' glow >Default</Button>
-        <Button color='white' >Default</Button>
+        <Button activated color='white' >Default</Button>
         <Button color='red' >Default</Button>
         <Button color='orange' >Default</Button>
         <Button color='yellow' >Default</Button>

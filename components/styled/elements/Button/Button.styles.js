@@ -13,8 +13,7 @@ import generateHex, { invertColor } from "/src/utils/StandardizeColor";
 
 // * Custom styles for the component
 export const StyledButton = styled.a.attrs({
-  className: "btn-default",
-  as: "a",
+  id: "btn-default",
 })`
   position: relative;
   display: inline-block;
@@ -23,30 +22,18 @@ export const StyledButton = styled.a.attrs({
   padding: 7px 45px;
   margin: 0px 0.5rem;
   color: ${(props) =>
-    props.color && typeof document !== "undefined"
-      ? invertColor(generateHex(props.color), true)
+    props.fgcolor && typeof window !== "undefined"
+      ? invertColor(generateHex(props.fgcolor), true)
       : "#ffffffee"};
   cursor: pointer;
   border-radius: 0.75rem;
+  border: ${(props) => (props.color ? props.color : "var(--clr-neon)")} 0px solid;
   overflow: hidden;
-  background: ${(props) => (props.color ? props.color : "var(--default-bg-gradient)")};
+  background: ${(props) => (props.fgcolor ? props.fgcolor : "var(--default-bg-gradient)")};
   user-select: none;
+  text-align: center;
 
-  & > .active {
-    position: absolute;
-    left: 0%;
-    height: 5px;
-    width: 100%;
-    background-color: #fff;
-    z-index: 100;
-  }
-
-  &[active] {
-    border-bottom: 5px solid ${(props) => (props.color ? props.color : "#0075b7")};
-  }
-
-  @media (prefers-color-scheme: light) {
-  }
+  transition: all 500ms ease-in-out;
 
   p {
     position: relative;
@@ -60,7 +47,7 @@ export const StyledButton = styled.a.attrs({
   span {
     position: absolute;
     background: ${(props) =>
-      props.color && typeof document !== "undefined"
+      props.color && typeof window !== "undefined"
         ? invertColor(generateHex(props.color), true) + "aa"
         : "#ffffffaa"};
     transform: translate(-50%, -50%);
@@ -71,12 +58,20 @@ export const StyledButton = styled.a.attrs({
   }
 
   ${(props) =>
+    props.activated &&
+    css`
+      &[active] {
+        border-bottom: 5px solid ${(props) => (props.color ? props.color : "#0075b7")};
+      }
+    `}
+
+  ${(props) =>
     props.bordered &&
     css`
       border: 1px solid #222222bb;
     `}
-
-  ${(props) =>
+      
+      ${(props) =>
     props.glow &&
     css`
       font-size: 1.2rem;
@@ -93,10 +88,6 @@ export const StyledButton = styled.a.attrs({
         0 0 0.25em currentColor;
 
       transition: all 500ms ease-in-out;
-
-      &[active] {
-        border-bottom: 5px solid ${(props) => (props.color ? props.color : "var(--clr-neon)")};
-      }
 
       &:before {
         pointer-events: none;

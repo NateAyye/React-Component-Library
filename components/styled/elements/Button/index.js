@@ -1,11 +1,15 @@
 import {StyledButton} from "./Button.styles";
+import generateHex, { invertColor } from "/src/utils/StandardizeColor";
 
-import React from "react";
 
-const Button = (props) => {
+import React, { useEffect, useState } from "react";
+
+function Button(props) {
   // * Adding an event listner on click to add a span that expands and removes itself after 1s
+  const [color, setColor] = useState("#000");
   if (typeof document !== "undefined") {
-    const buttons = document.querySelectorAll(".btn-default");
+    useEffect(() => setColor(props.color), [])
+    const buttons = document.querySelectorAll("#btn-default");
     buttons.forEach((btn) => {
       // * Adding an event listner on click to add a span that expands and removes
       btn.addEventListener("click", (e) => {
@@ -34,14 +38,13 @@ const Button = (props) => {
         }, 700);
       });
     });
+    
   }
-
   // ? The component Actually rendered to the page
   return (
     // * Passing the props down th the component so you can attach all the normal attribute's a link may have
-    <StyledButton {...props}>
+    <StyledButton fgcolor={color} {...props}>
       <p>{props.children}</p>
-      <div className="active"></div>
     </StyledButton>
   );
 };

@@ -8,6 +8,8 @@ const Navbar = () => {
       <Button glow >About</Button>
       <Button glow >Profile</Button>
       <Button glow >Settings</Button>
+      <br />
+      <Button href='/sign-in'>Sign In</Button>
     </div>
   )
 }
