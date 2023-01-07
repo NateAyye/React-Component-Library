@@ -6,7 +6,7 @@ export const SForm = styled.form`
   background: whitesmoke;
   color: ${props => props.theme.dark.primary};
   border-radius: 1rem;
-  padding: 1rem;
+  padding: 1rem ;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -21,13 +21,13 @@ export const FormTitle = styled.span`
 
 `
 export const FormControl = styled.div`
-  width: 65%;
+  width: 70%;
   :first-of-type {
-    margin: 1rem 0;
+    margin: 2rem 0;
   }
 
   :last-of-type {
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
   }
 `
 

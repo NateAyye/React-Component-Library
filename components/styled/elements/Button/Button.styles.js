@@ -22,7 +22,7 @@ export const StyledButton = styled.a.attrs({
   padding: 7px 45px;
   margin: 0px 0.5rem;
   color: ${(props) =>
-    props.fgcolor && typeof window !== "undefined"
+    props.color && typeof window !== "undefined"
       ? invertColor(generateHex(props.fgcolor), true)
       : "#ffffffee"};
   cursor: pointer;

@@ -15,7 +15,7 @@ const Form = ({ title, formArr, submitBtn, onSubmit, redirect }) => {
           <Input name={name} type={type} />
         </FormControl>
       ))}
-      <Button as="button" onSubmit={onSubmit} color="#23a9f2" style={{ width: 70 + "%" }}>
+      <Button as="button" onSubmit={onSubmit} color="#23a9f2" style={{ width: 60 + "%" }}>
         {submitBtn}
       </Button>
     </SForm>
