@@ -2,6 +2,7 @@ import Head from "next/head";
 import { Inter } from "@next/font/google";
 import Card from "../components/styled/blocks/Card";
 import Button from "../components/styled/elements/Button";
+import PokeCard from "../components/styled/blocks/PokemonCard";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,20 +22,20 @@ export default function Home() {
       </Head>
       <main style={{ height: 100 + "vh", background: 'black', }}>
 
-        <Button activated color='#ff00ff' glow >Default</Button>
+        <Button rippleOff activated color='#ff00ff' glow >Default</Button>
         <Button activated color='#24acf2' glow >Default</Button>
-        <Button color='orange' glow >Default</Button>
+        <Button activated color='orange' glow >Default</Button>
         <Button color='yellow' glow >Default</Button>
         <Button color='green' glow >Default</Button>
         <Button color='blue' glow >Default</Button>
         <Button color='indigo' glow >Default</Button>
         <Button color='violet' glow >Default</Button>
-        <Button activated color='white' >Default</Button>
+        <Button bevel color='white' >Default</Button>
         <Button color='red' >Default</Button>
         <Button color='orange' >Default</Button>
         <Button color='yellow' >Default</Button>
         <Button color='green' >Default</Button>
-        <Button color='blue' >Default</Button>
+        <Button  color='blue' >Default</Button>
         <Button color='indigo' >Default</Button>
         <Button color='violet' >Default</Button>
         <Button>Default</Button>
@@ -49,7 +50,7 @@ export default function Home() {
             <Card.Title>Nathan Cuevas</Card.Title>
           </Card.Header>
           <Card.Text>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt nesciunt nemo veniam eveniet? Libero quasi fugiat vero quos, eos rem. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est molestiae et consequuntur laudantium velit architecto porro nesciunt maiores saepe corporis!
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt nesciunt nemo veniam eveniet? Libero quasi fugiat vero quos, eos rem. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est molestiae et consequuntur laudantium velit architecto porro nesciunt maiores saepe corporis! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est eaque suscipit, porro iure perferendis illo unde eos temporibus atque natus.
           </Card.Text>
         </Card>
         <Card>
@@ -64,6 +65,7 @@ export default function Home() {
             Wellcome to the Card made from styled components
           </Card.Text>
         </Card>
+        <PokeCard type='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSa96H_h4g735h8p0ciVKgpq3LUwkBUBYM0s1ytzPjBe4vf1FzKrfU-DHUnkkelakUfPug&usqp=CAU' title='Ditto' src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png' />
         </div>
       </main>
     </>

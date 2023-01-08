@@ -31,7 +31,6 @@ export const StyledButton = styled.a.attrs({
   overflow: hidden;
   background: ${(props) => (props.fgcolor ? props.fgcolor : "var(--default-bg-gradient)")};
   user-select: none;
-  text-align: center;
 
   transition: all 500ms ease-in-out;
 
@@ -58,10 +57,30 @@ export const StyledButton = styled.a.attrs({
   }
 
   ${(props) =>
+    props.transparent &&
+    css`
+      background: transparent;
+    `}
+
+  ${(props) =>
+    props.href &&
+    props.activated &&
+    css`
+      border-bottom: ${(props) =>
+        props.href === props.route
+          ? `3px solid ${props.color ? props.color : "#23a9f2"}`
+          : " none"};
+    `}
+
+  ${(props) =>
     props.activated &&
     css`
       &[active] {
-        border-bottom: 5px solid ${(props) => (props.color ? props.color : "#0075b7")};
+        border-bottom: 5px solid
+          ${(props) =>
+            props.color && typeof window !== "undefined"
+              ? invertColor(generateHex(props.color), true) + "44"
+              : "#ffffffaa"};
       }
     `}
 
@@ -129,5 +148,16 @@ export const StyledButton = styled.a.attrs({
       :hover::after {
         opacity: 1;
       }
+
+      ${(props) =>
+        props.activated &&
+        css`
+          &[active] {
+            border-bottom: 5px solid ${(props) => (props.color ? props.color : "var(--clr-neon)")};
+            box-shadow: 0px 9px 8px -8px ${props.color};
+          }
+        `}
     `}
+
+
 `;

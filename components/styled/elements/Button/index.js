@@ -1,12 +1,12 @@
 import {StyledButton} from "./Button.styles";
+import {useRouter} from 'next/router'
 
 
 import React, { useEffect, useState } from "react";
 
 function Button(props) {
-  
-  const [color, setColor] = useState("#000");
-  
+  const router = useRouter();
+  const [color, setColor] = useState("#000000");
   useEffect(() => setColor(props.color), [])
 
   // * Adding an event listner on click to add a span that expands and removes itself after 1s
@@ -40,12 +40,11 @@ function Button(props) {
         }, 700);
       });
     });
-    
-  }
+}
   // ? The component Actually rendered to the page
   return (
     // * Passing the props down th the component so you can attach all the normal attribute's a link may have
-    <StyledButton fgcolor={color} {...props}>
+    <StyledButton route={router.asPath} fgcolor={color} {...props}>
       <p>{props.children}</p>
     </StyledButton>
   );

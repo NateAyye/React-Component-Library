@@ -1,15 +1,18 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Button from '/components/styled/elements/Button'
 
+
 const Navbar = () => {
+
+
   return (
     <div className='navbar'>
-      <Button glow >Home</Button>
-      <Button glow >About</Button>
-      <Button glow >Profile</Button>
-      <Button glow >Settings</Button>
+      <Button transparent activated href='/' >Home</Button>
+      <Button transparent activated href='/about' >About</Button>
+      <Button transparent >Profile</Button>
+      <Button transparent >Settings</Button>
       <br />
-      <Button href='/sign-in'>Sign In</Button>
+      <Button transparent activated href='/sign-in'>Sign In</Button>
     </div>
   )
 }
