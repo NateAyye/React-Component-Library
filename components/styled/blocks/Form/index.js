@@ -1,6 +1,15 @@
 import React, { useEffect, useState } from "react";
 import Button from "../../elements/Button";
-import { SForm, FormTitle, FormControl, Label, Input } from "./styles";
+import {
+  SForm,
+  FormTitle,
+  FormControl,
+  Label,
+  Input,
+  RedirectLabel,
+  Redirect,
+  RedirectLink,
+} from "./styles";
 
 const prepareForm = (formArr) => {
   return formArr.reduce((r, v) => ({ ...r, [v.name]: "" }), {});
@@ -34,10 +43,16 @@ const Form = ({ title, formArr, submitBtn, onSubmit, redirect }) => {
           onSubmitHandler(e);
         }}
         color="#23a9f2"
-        style={{ width: 60 + "%" }}
+        style={{ margin: 1.5 +'rem' , width: 60 + "%" }}
       >
         {submitBtn}
       </Button>
+      {redirect && (
+        <Redirect>
+          <RedirectLabel>{redirect.label}&emsp;</RedirectLabel>
+          <RedirectLink href={redirect.link.to}>{redirect.link.label}</RedirectLink>
+        </Redirect>
+      )}
     </SForm>
   );
 };
@@ -59,7 +74,7 @@ Form.defaultProps = {
   submitBtn: "Sign In",
   onSubmit: (form) => console.log(form),
   redirect: {
-    label: "don't have an account",
+    label: "Don't have an account",
     link: {
       label: "Register",
       to: "/register",

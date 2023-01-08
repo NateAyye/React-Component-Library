@@ -22,7 +22,7 @@ const CardContainer = styled.div`
   font-weight: 600;
   display: flex;
   flex-direction: column-reverse;
-  min-height: 10rem;
+  min-height: 9rem;
   min-width: 8rem;
   border-radius: 0.5rem 0.5rem 0 0;
   padding: 0.5rem;
