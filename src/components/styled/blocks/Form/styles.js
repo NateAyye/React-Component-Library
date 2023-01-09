@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export const SForm = styled.form`
   width: 100%;
-  font-family: 'Segoe UI';
+  font-family: ${(props) => props.theme.fontFamily};
   background: whitesmoke;
   color: ${props => props.theme.dark.primary};
   border-radius: 1rem;

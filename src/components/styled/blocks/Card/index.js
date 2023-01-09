@@ -39,7 +39,7 @@ const StyledCard = styled.div`
   
   &:hover {
     img {
-      box-shadow: 0px 0px 10px ${(props) => props.theme.dark.primary1};
+      box-shadow: 0 0 10px ${(props) => props.theme.dark.primary1};
     }
   }
   `;
