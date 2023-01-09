@@ -3,9 +3,11 @@ import generateHex, { invertColor } from "/src/utils/StandardizeColor";
 
 //?
 //? Props:
-//? - color = <any built in html color will work and will change the background color of the main element
-//? - glow =
-//?
+//? - color = any built in html color will work and will change the background color of the main element * also will automatically change the foreground color to the respective contrasted color.
+//          (i.e. color={'white'} means the foreground will be black to allow for easy reading)
+//? - glow = Turns the button into a neon sign version of the button with hover effects.
+//? - activated = turns the button into one that keeps a bottom border when clicked on, but it doesn't keep it when clicked off
+//        if you want it to keep the border persistent then the href value of the button will tell it to keep the border when it's on that route.
 //?
 //?
 //?
@@ -20,7 +22,7 @@ export const StyledButton = styled.a.attrs({
   z-index: 100;
   text-decoration: none;
   padding: 7px 45px;
-  margin: 0px 0.5rem;
+  margin: 0 0.5rem;
   color: ${(props) =>
     props.color && typeof window !== "undefined"
       ? invertColor(generateHex(props.fgcolor), true)
@@ -112,7 +114,7 @@ export const StyledButton = styled.a.attrs({
         pointer-events: none;
         content: "";
         position: absolute;
-        background: ${(props) => (props.color ? props.color : "var(--clr-neon)")};
+        background: ${(props) => props.color ? props.color : "var(--clr-neon)"};
         top: 100%;
         left: 0;
         right: 0;
@@ -154,7 +156,7 @@ export const StyledButton = styled.a.attrs({
         css`
           &[active] {
             border-bottom: 5px solid ${(props) => (props.color ? props.color : "var(--clr-neon)")};
-            box-shadow: 0px 9px 8px -8px ${props.color};
+            box-shadow: 0 9px 8px -8px ${props.color};
           }
         `}
     `}

@@ -1,10 +1,8 @@
 import Head from "next/head";
-import { Inter } from "@next/font/google";
-import Card from "../../components/styled/blocks/Card";
-import Button from "../../components/styled/elements/Button";
-import PokeCard from "../../components/styled/blocks/PokemonCard";
+import Card from "../components/styled/blocks/Card";
+import Button from "../components/styled/elements/Button";
+import PokeCard from "../components/styled/blocks/PokemonCard";
 
-const inter = Inter({ subsets: ["latin"] });
 
 
 

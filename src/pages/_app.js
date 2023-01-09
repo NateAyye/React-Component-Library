@@ -1,7 +1,8 @@
-import Navbar from "../components/Navbar/Navbar";
+import Navbar from '../components/layouts/Navbar/Navbar'
 import "../styles/globals.css";
 import SSRProvider from "react-bootstrap/SSRProvider";
 import { ThemeProvider, createGlobalStyle } from "styled-components";
+  
 
 const size = {
   mobileS: '320px',
@@ -38,7 +39,7 @@ const theme = {
     text: '#161616AA'
   },
   device: device,
-  fontFamily: 'Oswald',
+  fontFamily: 'Segue UI, sans-serif'
 }
 
 const GlobalStyle = createGlobalStyle`
@@ -52,8 +53,8 @@ const GlobalStyle = createGlobalStyle`
 
   @keyframes animate {
     0% {
-      width: 0px;
-      height: 0px;
+      width: 0;
+      height: 0;
       opacity: 0.2;
     }
     100% {
