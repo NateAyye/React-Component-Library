@@ -18,7 +18,7 @@ const PokeCard = (props) => {
 
 const CardContainer = styled.div`
   overflow: hidden;
-  font-family: "Segoe UI", sans-serif;
+  font-family: ${(props) => props.theme.fontFamily};
   font-weight: 600;
   display: flex;
   flex-direction: column-reverse;
