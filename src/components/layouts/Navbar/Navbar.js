@@ -9,7 +9,7 @@ const Navbar = () => {
     <div className='navbar'>
       <Button transparent activated href='/' >Home</Button>
       <Button transparent activated href='/about' >About</Button>
-      <Button transparent >Profile</Button>
+      <Button transparent href={'/profile'} >Profile</Button>
       <Button transparent >Settings</Button>
       <br />
       <Button transparent activated href='/sign-in'>Sign In</Button>

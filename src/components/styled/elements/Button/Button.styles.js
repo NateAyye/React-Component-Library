@@ -1,17 +1,16 @@
 import styled, { css } from "styled-components";
 import generateHex, { invertColor } from "/src/utils/StandardizeColor";
 
-//?
-//? Props:
-//? - color = any built in html color will work and will change the background color of the main element * also will automatically change the foreground color to the respective contrasted color.
-//          (i.e. color={'white'} means the foreground will be black to allow for easy reading)
-//? - glow = Turns the button into a neon sign version of the button with hover effects.
-//? - activated = turns the button into one that keeps a bottom border when clicked on, but it doesn't keep it when clicked off
-//        if you want it to keep the border persistent then the href value of the button will tell it to keep the border when it's on that route.
-//?
-//?
-//?
-//?
+/**
+ Props:
+ - color = any built in html color will work and will change the background color of the main element * also will
+          automatically change the foreground color to the respective contrasted color.
+         (i.e. color={'white'} means the foreground will be black to allow for easy reading)
+ - glow = Turns the button into a neon sign version of the button with hover effects.
+ - activated = turns the button into one that keeps a bottom border when clicked on, but it doesn't keep it when
+           clicked off if you want it to keep the border persistent then the href value of the button will tell it to
+            keep the border when it's on that route.
+**/
 
 // * Custom styles for the component
 export const StyledButton = styled.a.attrs({
@@ -25,7 +24,7 @@ export const StyledButton = styled.a.attrs({
   margin: 0 0.5rem;
   color: ${(props) =>
     props.color && typeof window !== "undefined"
-      ? invertColor(generateHex(props.fgcolor), true)
+      ? invertColor(props.fgcolor.startsWith('#') ? props.fgcolor : generateHex(props.fgcolor), true)
       : "#ffffffee"};
   cursor: pointer;
   border-radius: 0.75rem;

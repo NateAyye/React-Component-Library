@@ -2,7 +2,7 @@ import Navbar from '../components/layouts/Navbar/Navbar'
 import "../styles/globals.css";
 import SSRProvider from "react-bootstrap/SSRProvider";
 import { ThemeProvider, createGlobalStyle } from "styled-components";
-  
+
 
 const size = {
   mobileS: '320px',
@@ -16,7 +16,6 @@ const size = {
 
 export const device = {
   mobileS: `(min-width: ${size.mobileS})`,
-
   mobileM: `(min-width: ${size.mobileM})`,
   mobileL: `(min-width: ${size.mobileL})`,
   tablet: `(min-width: ${size.tablet})`,
@@ -40,21 +39,25 @@ const theme = {
     text: '#161616AA'
   },
   device: device,
-  fontFamily: 'Segue UI, sans-serif'
+  fontFamily: 'Segue UI',
 }
 
 const GlobalStyle = createGlobalStyle`
 :root {
   --default-bg-gradient: linear-gradient(95deg, #263238aa, #212121aa);
-}
-
-* {
-  font-family: ${(props) => props.theme.fontFamily};
+  --box-shadow-pop: 6px 6px 10px -1px rgba(0, 0, 0, 0.15),
+                   -6px -6px 10px -1px rgba(255, 255, 255, 0.7);
+  --box-shadow-inner: inset 4px 4px 6px -1px rgba(0, 0, 0, 0.2),
+    inset -4px -4px 6px -1px rgba(255, 255, 255, 0.7),
+    -0.5px -0.5px 0px rgba(255, 255, 255, 1),
+  0.5px 0.5px 0px rgba(0, 0, 0, 0.15),
+  0px 12px 10px -10px rgba(0, 0, 0, 0.05);
 }
   button {
     font-family: ${(props) => props.theme.fontFamily};
     font-weight: bolder;
   }
+
 
   @keyframes animate {
     0% {
